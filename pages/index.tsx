@@ -1,11 +1,22 @@
 import type { NextPage } from 'next';
-import { Button, Htag, Ptag, Tag } from '../components';
+import { useEffect, useState } from 'react';
+import { Button, Htag, Ptag, Rating, Tag } from '../components';
 
 const Home: NextPage = (): JSX.Element => {
+	const [counter, setCounter] = useState<number>(0);
+	const [rating, setRating] = useState<number>(4);
+
+	useEffect(() => {
+		console.log('Counter', counter);
+		return function cleanup() {
+			console.log('Unmount');
+		};
+	});
+
 	return (
 		<div>
-			<Htag tag="h1">Text title!</Htag>
-			<Button appearance="primary" arrow="right">
+			<Htag tag="h1">{counter}</Htag>
+			<Button appearance="primary" arrow="right" onClick={() => setCounter((x) => x + 1)}>
 				Submit
 			</Button>
 			<Button appearance="ghost" arrow="down">
@@ -27,6 +38,9 @@ const Home: NextPage = (): JSX.Element => {
 			<Tag color="gray" href="https://nextjs.org/">
 				tag
 			</Tag>
+			<div>
+				<Rating rating={rating} isEditable={true} setRating={setRating} />
+			</div>
 		</div>
 	);
 };
