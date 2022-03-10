@@ -1,6 +1,7 @@
 import type { NextPage } from 'next';
 import { useEffect, useState } from 'react';
 import { Button, Htag, Ptag, Rating, Tag } from '../components';
+import { withLayout } from '../layout/Layout';
 
 const Home: NextPage = (): JSX.Element => {
 	const [counter, setCounter] = useState<number>(0);
@@ -45,4 +46,4 @@ const Home: NextPage = (): JSX.Element => {
 	);
 };
 
-export default Home;
+export default withLayout(Home);
