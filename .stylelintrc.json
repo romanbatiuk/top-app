@@ -6,6 +6,7 @@
 	],
 	"plugins": ["stylelint-order"],
 	"rules": {
-		"indentation": "tab"
+		"indentation": "tab",
+		"declaration-block-no-redundant-longhand-properties": null
 	}
 }
