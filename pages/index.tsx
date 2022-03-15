@@ -5,7 +5,9 @@ import { withLayout } from '../layout/Layout';
 import axios from 'axios';
 import { MenuItem } from '../interfaces/menu.interface';
 
-const Home: NextPage = (): JSX.Element => {
+const Home = ({ menu }: HomeProps): JSX.Element => {
+	// console.log(menu);
+
 	const [counter, setCounter] = useState<number>(0);
 	const [rating, setRating] = useState<number>(4);
 
