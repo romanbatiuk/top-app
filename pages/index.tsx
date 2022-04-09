@@ -60,6 +60,7 @@ export const getStaticProps: GetStaticProps<HomeProps> = async () => {
 			firstCategory
 		}
 	);
+
 	return {
 		props: {
 			menu,
