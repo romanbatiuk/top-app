@@ -1,20 +1,20 @@
-import type { GetStaticProps, NextPage } from 'next';
+import type { GetStaticProps } from 'next';
 import { useEffect, useState } from 'react';
 import { Button, Htag, Ptag, Rating, Tag } from '../components';
 import { withLayout } from '../layout/Layout';
 import axios from 'axios';
 import { MenuItem } from '../interfaces/menu.interface';
 
-const Home = ({ menu }: HomeProps): JSX.Element => {
+const Home = (): JSX.Element => {
 	// console.log(menu);
 
 	const [counter, setCounter] = useState<number>(0);
 	const [rating, setRating] = useState<number>(4);
 
 	useEffect(() => {
-		console.log('Counter', counter);
+		// console.log('Counter', counter);
 		return function cleanup() {
-			console.log('Unmount');
+			// console.log('Unmount');
 		};
 	});
 
