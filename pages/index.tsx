@@ -1,6 +1,6 @@
 import type { GetStaticProps } from 'next';
 import { useEffect, useState } from 'react';
-import { Button, Htag, Ptag, Rating, Tag } from '../components';
+import { Button, Htag, Input, Ptag, Rating, Tag } from '../components';
 import { withLayout } from '../layout/Layout';
 import axios from 'axios';
 import { MenuItem } from '../interfaces/menu.interface';
@@ -21,6 +21,7 @@ const Home = (): JSX.Element => {
 	return (
 		<div>
 			<Htag tag="h1">{counter}</Htag>
+			<Input placeholder="Заголовок отзыва" />
 			<Button appearance="primary" arrow="right" onClick={() => setCounter((x) => x + 1)}>
 				Submit
 			</Button>
