@@ -1,0 +1,94 @@
+.productWrapper {
+	margin-bottom: 30px;
+}
+.product {
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+	padding: 30px 30px 20px;
+	grid-gap: 10px 40px;
+	gap: 10px 40px;
+}
+
+.name {
+	display: grid;
+	grid-template-columns: auto 1fr;
+	grid-template-rows: auto auto;
+	grid-gap: 10px;
+	gap: 10px;
+}
+.image {
+	align-self: center;
+	width: 70px;
+	height: 70px;
+	margin-right: 20px;
+	border-radius: 5px;
+	grid-row-start: 1;
+	grid-row-end: -1;
+}
+
+.prices {
+	display: grid;
+	grid-gap: 0 40px;
+	gap: 0 40px;
+	justify-self: end;
+	grid-template-columns: auto auto auto;
+	align-self: flex-start;
+}
+
+.priceDescription {
+	color: var(--black);
+	font-size: 14px;
+	font-weight: 300;
+	line-height: 19px;
+}
+
+.divider,
+.description {
+	grid-column: 1/-1;
+}
+
+.characteristics {
+	display: grid;
+	grid-template-columns: auto 1fr auto;
+}
+
+.characteristicsName {
+	margin-right: 10px;
+	font-size: 16px;
+	font-weight: 700;
+	line-height: 32px;
+}
+
+.characteristicsDots {
+	margin-bottom: 5px;
+	border-bottom: 1px dashed var(--gray-light);
+}
+
+.characteristicsValue {
+	margin-left: 10px;
+	font-size: 16px;
+	line-height: 32px;
+}
+
+.tags {
+	margin-top: 15px;
+}
+.tag {
+	margin-bottom: 5px;
+}
+
+.advantages {
+	margin-bottom: 30px;
+	padding-left: 15px;
+	border-left: 3px solid var(--green);
+}
+.disAdvantages {
+	padding-left: 15px;
+	border-left: 3px solid var(--red);
+}
+.advTitle {
+	margin-bottom: 5px;
+	font-size: 16px;
+	font-weight: 700;
+	line-height: 22px;
+}

@@ -9,4 +9,6 @@ export * from './Advantages/Advantages';
 export * from './Sort/Sort';
 export * from './Input/Input';
 export * from './Textarea/Textarea';
+export * from './Divider/Divider';
 export * from './Search/Search';
+export * from './Product/Product';
