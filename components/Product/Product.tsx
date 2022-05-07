@@ -10,8 +10,12 @@ import { Divider } from '../Divider/Divider';
 import { Ptag } from '../Ptag/Ptag';
 import { Button } from '../Button/Button';
 import Image from 'next/image';
+import React, { useState } from 'react';
+import { Review } from '../Review/Review';
 
 export const Product = ({ product, className, ...props }: ProductProps): JSX.Element => {
+	const [isReviewOpen, setIsReviewOpen] = useState<boolean>(false);
+
 	return (
 		<div className={styles.productWrapper}>
 			<Card className={styles.product}>
@@ -106,10 +110,28 @@ export const Product = ({ product, className, ...props }: ProductProps): JSX.Ele
 					<Button appearance="primary" className={styles.button}>
 						Подробнее о курсе
 					</Button>
-					<Button appearance="ghost" className={styles.button} arrow={'right'}>
+					<Button
+						appearance="ghost"
+						className={styles.button}
+						arrow={isReviewOpen ? 'down' : 'right'}
+						onClick={() => setIsReviewOpen(!isReviewOpen)}>
 						Отзывы о курсе
 					</Button>
 				</div>
+			</Card>
+
+			<Card
+				color="blue"
+				className={cn(styles.reviews, {
+					[styles.opened]: isReviewOpen,
+					[styles.closed]: !isReviewOpen
+				})}>
+				{product.reviews.map((r) => (
+					<React.Fragment key={r._id}>
+						<Review review={r} />
+						<Divider className={styles.hr} />
+					</React.Fragment>
+				))}
 			</Card>
 		</div>
 	);

@@ -1,0 +1,39 @@
+.review {
+	display: grid;
+	align-items: center;
+	white-space: pre-line;
+	font-size: 14px;
+	line-height: 24px;
+	grid-template-columns: auto auto 1fr auto;
+	gap: 10px 0;
+}
+
+.user {
+	margin-right: 10px;
+}
+
+.name {
+	font-weight: 700;
+}
+
+.date {
+	justify-self: end;
+	margin-right: 10px;
+}
+
+.description {
+	grid-column: 1/-1;
+}
+
+@media screen and (max-width: 768px) {
+	.review {
+		grid-template-columns: auto 1fr;
+	}
+	.date {
+		grid-column: 1/-1;
+		justify-self: unset;
+	}
+	.rating {
+		grid-column: 1/-1;
+	}
+}
