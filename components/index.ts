@@ -12,4 +12,5 @@ export * from './Textarea/Textarea';
 export * from './Divider/Divider';
 export * from './Search/Search';
 export * from './Review/Review';
+export * from './ReviewForm/ReviewForm';
 export * from './Product/Product';

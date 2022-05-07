@@ -110,15 +110,15 @@
 }
 
 .reviews {
-	margin-top: -10px;
 	display: grid;
+	margin-top: -10px;
 	gap: 10px;
 }
 
 .closed {
-	overflow: hidden;
 	max-height: 0;
 	padding: 0;
+	overflow: hidden;
 }
 
 .opened {
@@ -129,6 +129,10 @@
 @media screen and (max-width: 1250px) {
 	.product {
 		grid-template-columns: 1fr;
+	}
+
+	.actions {
+		grid-template-columns: 1fr 1fr;
 	}
 
 	.prices {
@@ -155,5 +159,9 @@
 
 	.actions {
 		grid-template-columns: 1fr;
+	}
+
+	.opened {
+		padding: 15px;
 	}
 }

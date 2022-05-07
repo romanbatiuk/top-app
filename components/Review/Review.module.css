@@ -1,10 +1,10 @@
 .review {
 	display: grid;
 	align-items: center;
-	white-space: pre-line;
+	grid-template-columns: auto auto 1fr auto;
 	font-size: 14px;
 	line-height: 24px;
-	grid-template-columns: auto auto 1fr auto;
+	white-space: pre-line;
 	gap: 10px 0;
 }
 
@@ -29,10 +29,12 @@
 	.review {
 		grid-template-columns: auto 1fr;
 	}
+
 	.date {
-		grid-column: 1/-1;
 		justify-self: unset;
+		grid-column: 1/-1;
 	}
+
 	.rating {
 		grid-column: 1/-1;
 	}

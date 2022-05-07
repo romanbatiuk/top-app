@@ -12,6 +12,7 @@ import { Button } from '../Button/Button';
 import Image from 'next/image';
 import React, { useState } from 'react';
 import { Review } from '../Review/Review';
+import { ReviewForm } from '../ReviewForm/ReviewForm';
 
 export const Product = ({ product, className, ...props }: ProductProps): JSX.Element => {
 	const [isReviewOpen, setIsReviewOpen] = useState<boolean>(false);
@@ -132,6 +133,7 @@ export const Product = ({ product, className, ...props }: ProductProps): JSX.Ele
 						<Divider className={styles.hr} />
 					</React.Fragment>
 				))}
+				<ReviewForm productId={product._id} />
 			</Card>
 		</div>
 	);
