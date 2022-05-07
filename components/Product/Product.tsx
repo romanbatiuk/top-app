@@ -23,13 +23,16 @@ export const Product = ({ product, className, ...props }: ProductProps): JSX.Ele
 						width={70}
 						height={70}
 					/>
-					<Htag tag="h3">{product.title}</Htag>
+
 					<div>
-						{product.categories.map((c) => (
-							<Tag color="ghost" key={c}>
-								{c}
-							</Tag>
-						))}
+						<Htag tag="h3">{product.title}</Htag>
+						<div className={styles.categories}>
+							{product.categories.map((c) => (
+								<Tag color="ghost" key={c}>
+									{c}
+								</Tag>
+							))}
+						</div>
 					</div>
 				</div>
 

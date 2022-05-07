@@ -3,6 +3,7 @@
 	align-items: center;
 	grid-template-columns: auto 1fr auto;
 	justify-items: left;
+	margin-bottom: 10px;
 	gap: 20px;
 }
 
@@ -35,4 +36,10 @@
 	font-weight: 600;
 	font-size: 20px;
 	line-height: 27px;
+}
+
+@media screen and (max-width: 768px) {
+	.title {
+		grid-template-columns: auto 1fr;
+	}
 }
