@@ -5,19 +5,23 @@ import { Card } from '../Card/Card';
 import { Rating } from '../Rating/Rating';
 import { Tag } from '../Tag/Tag';
 import { Htag } from '../Htag/Htag';
-import { priceRegEx } from '../../helpers/helpers';
+import { declOfNum, priceRegEx } from '../../helpers/helpers';
 import { Divider } from '../Divider/Divider';
 import { Ptag } from '../Ptag/Ptag';
+import { Button } from '../Button/Button';
+import Image from 'next/image';
 
 export const Product = ({ product, className, ...props }: ProductProps): JSX.Element => {
 	return (
 		<div className={styles.productWrapper}>
 			<Card className={styles.product}>
 				<div className={styles.name}>
-					<img
+					<Image
 						className={styles.image}
 						src="https://img-c.udemycdn.com/course/50x50/1035000_c1aa_6.jpg"
 						alt={product.title}
+						width={70}
+						height={70}
 					/>
 					<Htag tag="h3">{product.title}</Htag>
 					<div>
@@ -47,7 +51,9 @@ export const Product = ({ product, className, ...props }: ProductProps): JSX.Ele
 					</div>
 					<div className={styles.priceDescription}>цена курса</div>
 					<div className={styles.priceDescription}>в рассрочку</div>
-					<div className={styles.priceDescription}>{product.reviewCount} отзывов о курсе</div>
+					<div className={styles.priceDescription}>
+						{product.reviewCount} {declOfNum(product.reviewCount, ['отзыв', 'отзыва', 'отзывов'])}
+					</div>
 				</div>
 
 				<div className={styles.divider}>
@@ -92,6 +98,14 @@ export const Product = ({ product, className, ...props }: ProductProps): JSX.Ele
 
 				<div className={styles.divider}>
 					<Divider className={styles.hr} />
+				</div>
+				<div className={styles.actions}>
+					<Button appearance="primary" className={styles.button}>
+						Подробнее о курсе
+					</Button>
+					<Button appearance="ghost" className={styles.button} arrow={'right'}>
+						Отзывы о курсе
+					</Button>
 				</div>
 			</Card>
 		</div>
