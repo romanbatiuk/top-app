@@ -40,8 +40,17 @@
 	border-radius: 5px;
 }
 
-.successTitle {
+.successTitle,
+.errorTitle {
 	font-weight: 700;
+}
+
+.error {
+	position: relative;
+	margin-top: 20px;
+	padding: 20px;
+	background: var(--red-light);
+	border-radius: 5px;
 }
 
 .close {
@@ -49,6 +58,10 @@
 	top: 20px;
 	right: 20px;
 	cursor: pointer;
+}
+
+.error .close path {
+	stroke: var(--red);
 }
 
 @media screen and (max-width: 768px) {

@@ -8,17 +8,37 @@ import { Textarea } from '../Textarea/Textarea';
 import { Button } from '../Button/Button';
 import { useForm, Controller } from 'react-hook-form';
 import { IReviewForm } from './ReviewForm.interface';
+import axios from 'axios';
+import { API } from '../../helpers/api';
+import { useState } from 'react';
 
 export const ReviewForm = ({ productId, className, ...props }: ReviewFormProps): JSX.Element => {
 	const {
 		register,
 		control,
 		handleSubmit,
-		formState: { errors }
+		formState: { errors },
+		reset
 	} = useForm<IReviewForm>();
 
-	const onSubmit = (data: IReviewForm) => {
-		console.log(data);
+	const [isSuccess, setIsSuccess] = useState<boolean>(false);
+	const [error, setError] = useState<string>();
+
+	const onSubmit = async (formData: IReviewForm) => {
+		try {
+			const response = await axios.post(API.review.create, { ...formData, productId });
+			console.log(response);
+
+			if (response.status === 201) {
+				setIsSuccess(true);
+				reset();
+			} else {
+				setError('Что-то пошло не так');
+			}
+		} catch ({ message }) {
+			console.log(message);
+			setError(message as string);
+		}
 	};
 
 	return (
@@ -70,11 +90,20 @@ export const ReviewForm = ({ productId, className, ...props }: ReviewFormProps):
 				</div>
 			</div>
 
-			<div className={styles.success}>
-				<div className={styles.successTitle}>Ваш отзыв отправлен</div>
-				<div>Спасибо за Ваш отзыв, он будет опубликован после проверки модератором!</div>
-				<CloseIcon className={styles.close} />
-			</div>
+			{isSuccess && (
+				<div className={styles.success}>
+					<div className={styles.successTitle}>Ваш отзыв отправлен</div>
+					<div>Спасибо за Ваш отзыв, он будет опубликован после проверки модератором!</div>
+					<CloseIcon className={styles.close} onClick={() => setIsSuccess(false)} />
+				</div>
+			)}
+
+			{error && (
+				<div className={styles.error}>
+					<div className={styles.errorTitle}>{error}</div>
+					<CloseIcon className={styles.close} onClick={() => setError(undefined)} />
+				</div>
+			)}
 		</form>
 	);
 };
